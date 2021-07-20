@@ -13,6 +13,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WriteReviewPage from "./pages/addMovieReviewPage";
+import PLayListPage from "./pages/playList";
 
 
 // the below - will retain all data in the cache for 1 hour before it becomes invalidated
@@ -34,6 +35,7 @@ const App = () => {
         <MoviesContextProvider>
             {" "}
         <Switch>
+        <Route exact path="/movies/playlist" component={PLayListPage} />
           <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />

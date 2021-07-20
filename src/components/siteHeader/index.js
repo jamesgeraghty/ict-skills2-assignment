@@ -31,7 +31,7 @@ const SiteHeader = ( { history }) => {
     { label: "Home", path: "/" },
     { label: "Up Coming", path: "/movies/upcoming" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Playlist", path: "/" },
+    { label: "Playlist", path: "/movies/playlist" },
     { label: "Top Rated", path: "/movies/toprated" },
   ];
 
@@ -45,10 +45,11 @@ const SiteHeader = ( { history }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" 
+    back="rgb(200, 204, 0)">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            TMDB Client
+            James's Assignment
           </Typography>
           <Typography variant="h6" className={classes.title}>
             All you ever wanted to know about Movies!

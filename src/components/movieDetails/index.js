@@ -5,11 +5,13 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import MonetizationIcon from "@material-ui/icons/MonetizationOn";
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,10 +25,18 @@ const useStyles = makeStyles((theme) => ({
   chip: {
     margin: theme.spacing(0.5),
   },
+
+  
   fab: {
     position: "fixed",
     bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    right: theme.spacing(12),
+  },
+
+  fab2: {
+    position: "fixed",
+    bottom: theme.spacing(12),
+    right: theme.spacing(12),
   },
 }));
 
@@ -50,10 +60,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         </li>
         {movie.genres.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
+            <Chip label={g.name} className={classes.chip} 
+            />
           </li>
         ))}
       </Paper>
+
+
+      
       <Paper component="ul" className={classes.root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
@@ -64,8 +78,15 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           icon={<StarRate />}
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Released: ${movie.release_date}`} 
+        />
+        <Chip label={`Popularity: ${movie.popularity}`} 
+        />
+        <Chip label={`Adult: ${movie.adult}`} 
+        />
       </Paper>
+
+
 
       <Paper component="ul" className={classes.root}>
         <li>
@@ -78,18 +99,51 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         ))}
       </Paper>
 
+
+
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() =>setDrawerOpen(true)}
+        className={classes.fab2}
+      >
+        <NavigationIcon />
+        Read Reviews
+      </Fab>
+      <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <MovieReviews movie={movie} />
+      </Drawer>
+
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() =>setDrawerOpen(true)}
+        className={classes.fab2}
+      >
+
+        
+        <ArrowForwardIosIcon />
+        Similar Movies
+      </Fab>
+      <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <MovieReviews movie={movie} />
+      </Drawer>
       <Fab
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
         className={classes.fab}
       >
+
+        
         <NavigationIcon />
-        Reviews
+        Read Reviews
       </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
+
+      
     </>
   );
 };

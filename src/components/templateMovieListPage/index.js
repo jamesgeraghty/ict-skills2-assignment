@@ -8,6 +8,8 @@ import MovieList from "../movieList";
 const useStyles = makeStyles({
   root: {
     padding: "20px",
+    backgroundColor: "rgb(26, 24, 24)"
+
   },
 });
 

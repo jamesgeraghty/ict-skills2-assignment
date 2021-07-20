@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
     marginBottom: theme.spacing(1.5),
+    backgroundColor: "rgb(56, 44, 48)",
+    
   },
 }));
 
@@ -24,8 +26,9 @@ const Header = ({ title, history }) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
-      <Typography variant="h4" component="h3">
+      <Typography color="primary" variant="h4" component="h4">
         {title}
+        
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />

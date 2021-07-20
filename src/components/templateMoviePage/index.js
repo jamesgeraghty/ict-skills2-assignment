@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
   },
   gridList: {
-    width: 450,
+    width: 200,
     height: '100vh',
   },
 }));

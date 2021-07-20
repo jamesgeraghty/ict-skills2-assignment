@@ -1,0 +1,13 @@
+
+*{
+box-sizing: border-box;
+
+}
+body{
+    background-color: #22254b;
+
+    color: rgb(255, 0, 0);
+    font-family: "Poppins";
+    margin:0;
+}
+

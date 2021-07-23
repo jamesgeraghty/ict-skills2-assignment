@@ -49,11 +49,9 @@ const SiteHeader = ( { history }) => {
     back="rgb(200, 204, 0)">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            James's Assignment
+          🎬 James's Movies App 🎥
           </Typography>
-          <Typography variant="h6" className={classes.title}>
-            All you ever wanted to know about Movies!
-          </Typography>
+          
             {isMobile ? (
               <>
                 <IconButton

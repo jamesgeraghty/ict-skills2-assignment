@@ -10,6 +10,8 @@ import PlaylistAddIcon from '../components/cardIcons/playlistAdd';
 const SimilarMoviesPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('similar', getSimilarMovies)
 
+  
+
   if (isLoading) {
     return <Spinner />
   }
@@ -25,7 +27,7 @@ const SimilarMoviesPage = (props) => {
   const addToPlayList = (movieId) => true 
   return (
     <PageTemplate
-      title='Top Rated'
+      title='Similar'
       movies={movies}
       action={(movie) => {
         return <PlaylistAddIcon movie={movie} />

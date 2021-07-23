@@ -6,6 +6,7 @@ import {getMovies, getTopRatedMovies,getSimilarMovies} from '../api/tmdb-api'
 import {getUpcomingMovies} from '../api/tmdb-api'
 //import {getTopRatedMovies} from '../api/tmdb-api'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddPlaylistAddIcon from '../components/cardIcons/playlistAdd'
 
 const HomePage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('discover', getMovies, getUpcomingMovies,getTopRatedMovies,getSimilarMovies)
@@ -35,7 +36,10 @@ const HomePage = (props) => {
         return <AddToFavoritesIcon movie={movie} />
       }}
     />
+  
+    
 );
+
 };
 
 export default HomePage;

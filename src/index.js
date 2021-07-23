@@ -14,6 +14,10 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WriteReviewPage from "./pages/addMovieReviewPage";
 import PLayListPage from "./pages/playList";
+import simpleNav from "./components/mainNav";
+
+
+
 
 
 // the below - will retain all data in the cache for 1 hour before it becomes invalidated
@@ -29,6 +33,8 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
+    <>
+    <simpleNav />
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
@@ -50,6 +56,7 @@ const App = () => {
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+    </>
   );
 };
 

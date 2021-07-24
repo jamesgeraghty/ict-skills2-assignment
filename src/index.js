@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import UpcomingMoviesPage from "./pages/upComing";
 import TopRatedMoviesPage from "./pages/topRated";
+import PopularMoviesPage from "./pages/popularMovies";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -14,7 +15,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WriteReviewPage from "./pages/addMovieReviewPage";
 import PLayListPage from "./pages/playList";
-import simpleNav from "./components/mainNav";
+import SimpleBottomNavigation from "./components/mainNav";
+
 
 
 
@@ -34,13 +36,12 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <>
-    <simpleNav />
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
-        <MoviesContextProvider>
-            {" "}
+        <MoviesContextProvider>           
         <Switch>
+        <Route exact path="/movies/popular" component={PopularMoviesPage} />
         <Route exact path="/movies/playlist" component={PLayListPage} />
           <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
@@ -53,6 +54,7 @@ const App = () => {
             <Redirect from="*" to="/" />
         </Switch>
         </MoviesContextProvider>
+        <SimpleBottomNavigation />
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

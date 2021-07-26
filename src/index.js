@@ -16,6 +16,8 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WriteReviewPage from "./pages/addMovieReviewPage";
 import PLayListPage from "./pages/playList";
 import SimpleBottomNavigation from "./components/mainNav";
+import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
+import SimilarMoviesPage from "./pages/similarMovies";
 
 
 
@@ -38,6 +40,8 @@ const App = () => {
         <SiteHeader />
         <MoviesContextProvider>           
         <Switch>
+        <Route exact path="/movies/:id/similar" component={SimilarMoviesPage} />
+        <Route exact path="/movies/now_playing" component={NowPlayingMoviesPage} />
         <Route exact path="/movies/popular" component={PopularMoviesPage} />
         <Route exact path="/movies/playlist" component={PLayListPage} />
           <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />

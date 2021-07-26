@@ -44,10 +44,7 @@ export default function MovieCard({ movie, action }) {
       movie.playList = true;
     }
 
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
+ 
 
   return (
  
@@ -101,6 +98,12 @@ export default function MovieCard({ movie, action }) {
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
+          </Button>
+        </Link>
+
+        <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="outlined" size="medium" color="primary">
+          Similar Movies ...
           </Button>
         </Link>
       </CardActions>

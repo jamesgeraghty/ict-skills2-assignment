@@ -9,9 +9,18 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Button from '@material-ui/core/Button';
 import Fab from "@material-ui/core/Fab";
 //import { getSimilarMovies } from "../api/tmdb-api";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardHeader from "@material-ui/core/CardHeader";
 
 
 import Typography from "@material-ui/core/Typography";
+
+import { Link } from "react-router-dom";
+
+
+//import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews"
@@ -46,10 +55,12 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-const MovieDetails = ({ movie }) => {  
+const MovieDetails = ({ movie, action }) => {  
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerOpen2, setDrawerOpen2] = useState(false);
+
+  
 
 
   return (
@@ -133,9 +144,23 @@ const MovieDetails = ({ movie }) => {
       </Fab>
       
       <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <SimilarMovies movie={movie} />
+        <MovieReviews movie={movie} />
       </Drawer>
+      <CardActions disableSpacing>
+      {action(movie)}
+     
+        <Link to={`/movies/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info
+          </Button>
+        </Link>
 
+        <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="outlined" size="medium" color="primary">
+          Similar Movies 
+          </Button>
+        </Link>
+      </CardActions>
       
     </>
   );

@@ -8,6 +8,7 @@ import PlaylistAddIcon from '../components/cardIcons/playlistAdd';
 
 
 const PopularMoviesPage = (props) => {
+  //const { id } = props.match.params
   const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
 
   if (isLoading) {

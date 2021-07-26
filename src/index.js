@@ -19,9 +19,6 @@ import SimpleBottomNavigation from "./components/mainNav";
 
 
 
-
-
-
 // the below - will retain all data in the cache for 1 hour before it becomes invalidated
 const queryClient = new QueryClient({
   defaultOptions: {

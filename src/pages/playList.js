@@ -8,7 +8,7 @@ import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const PLayListPage = () => {
-  const {playlists: movieIds } = useContext(MoviesContext);
+  const {playListAdd: movieIds } = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
   const playListQueries = useQueries(
@@ -36,7 +36,7 @@ const PLayListPage = () => {
         return (
           <>
             <RemoveFromFavorites movie={movie} />
-            <WriteReview movie={movie} />
+          
           </>
         );
       }}

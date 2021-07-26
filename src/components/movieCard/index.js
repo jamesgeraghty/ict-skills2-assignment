@@ -10,18 +10,19 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
-import IconButton from "@material-ui/core/IconButton";
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+import "./moviesCard.css";
 
 
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
-  media: { height: 500 },
+  media: { height: 450 },
   // backgroundColor:"rgb(56, 48, 48)",
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
@@ -31,12 +32,17 @@ const useStyles = makeStyles({
 export default function MovieCard({ movie, action }) {
   const classes = useStyles();
   const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { playListAdd } = useContext(MoviesContext);
 
-  if (favorites.find((id) => id === movie.id)) {
-    movie.favorite = true;
-  } else {
-    movie.favorite = false
-  }
+    if (favorites.find((id) => id === movie.id)) 
+    {
+      movie.favorite = true;
+    }
+
+    if (playListAdd.find((id) => id === movie.id))
+     {
+      movie.playList = true;
+    }
 
   const handleAddToFavorite = (e) => {
     e.preventDefault();
@@ -44,6 +50,7 @@ export default function MovieCard({ movie, action }) {
   };
 
   return (
+ 
     <Card className={classes.card}>
        <CardHeader
       className={classes.header}
@@ -52,10 +59,14 @@ export default function MovieCard({ movie, action }) {
           <Avatar className={classes.avatar}>
             <FavoriteIcon />
           </Avatar>
-        ) : null
+     ) : movie.playList ? (
+      <Avatar className={classes.avatar}>
+        <PlaylistAddCheckIcon />
+      </Avatar>
+    ) : null
       }
       title={
-        <Typography variant="h5" component="p">
+        <Typography variant="h6" component="p">
           {movie.title}{" "}
         </Typography>
       }
@@ -94,5 +105,6 @@ export default function MovieCard({ movie, action }) {
         </Link>
       </CardActions>
     </Card>
+  
   );
 }

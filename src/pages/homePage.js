@@ -2,13 +2,12 @@ import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
-import {getMovies, getTopRatedMovies,getSimilarMovies} from '../api/tmdb-api'
-import {getUpcomingMovies} from '../api/tmdb-api'
-//import {getTopRatedMovies} from '../api/tmdb-api'
+import {getMovies, getTopRatedMovies,getSimilarMovies, getPopularMovies, getUpcomingMovies} from '../api/tmdb-api'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
+
 const HomePage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies, getUpcomingMovies,getTopRatedMovies,getSimilarMovies)
+  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies, getUpcomingMovies,getTopRatedMovies,getSimilarMovies,getPopularMovies)
 
   if (isLoading) {
     return <Spinner />
@@ -35,7 +34,10 @@ const HomePage = (props) => {
         return <AddToFavoritesIcon movie={movie} />
       }}
     />
+  
+    
 );
+
 };
 
 export default HomePage;

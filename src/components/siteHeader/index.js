@@ -12,6 +12,7 @@ import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import WhatshotIcon from "@material-ui/icons/Whatshot";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -33,6 +34,7 @@ const SiteHeader = ( { history }) => {
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Playlist", path: "/movies/playlist" },
     { label: "Top Rated", path: "/movies/toprated" },
+    { label: "Popular", path: "/movies/popular" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -49,11 +51,9 @@ const SiteHeader = ( { history }) => {
     back="rgb(200, 204, 0)">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            James's Assignment
+          🎬 James's Movies App 🎥
           </Typography>
-          <Typography variant="h6" className={classes.title}>
-            All you ever wanted to know about Movies!
-          </Typography>
+          
             {isMobile ? (
               <>
                 <IconButton

@@ -6,11 +6,17 @@ import MonetizationIcon from "@material-ui/icons/MonetizationOn";
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Button from '@material-ui/core/Button';
 import Fab from "@material-ui/core/Fab";
+//import { getSimilarMovies } from "../api/tmdb-api";
+
+
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews"
+import SimilarMovies from "../similarMovies";
+import MovieCard from "../movieCard";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
   chip: {
     margin: theme.spacing(0.5),
   },
-
+  button: {
+    position: "fixed",
+    bottom: theme.spacing(12),
+    right: theme.spacing(12),
+  },
   
   fab: {
     position: "fixed",
@@ -33,22 +43,20 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(12),
   },
 
-  fab2: {
-    position: "fixed",
-    bottom: theme.spacing(12),
-    right: theme.spacing(12),
-  },
+ 
 }));
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie }) => {  
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen2, setDrawerOpen2] = useState(false);
+
 
   return (
     <>
       <Typography variant="h5" component="h3">
         Overview
-      </Typography>
+     </Typography>
 
       <Typography variant="h6" component="p">
         {movie.overview}
@@ -98,49 +106,34 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
-
-
-
-      <Fab
+     
+      <Button
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        className={classes.fab2}
-      >
-        <NavigationIcon />
-        Read Reviews
-      </Fab>
-      <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
-      </Drawer>
-
-      <Fab
-        color="secondary"
-        variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        className={classes.fab2}
-      >
-
-        
+        onClick={() =>setDrawerOpen2(true)}
+        className={classes.button}
+      >        
         <ArrowForwardIosIcon />
         Similar Movies
-      </Fab>
-      <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
+      </Button>
+      <Drawer anchor="top" open={drawerOpen2} onClose={() => setDrawerOpen2(false)}>
+        <MovieDetails movie={movie} />
       </Drawer>
+     
+     
+     
       <Fab
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
         className={classes.fab}
-      >
-
-        
+      >        
         <NavigationIcon />
         Read Reviews
       </Fab>
+      
       <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
+        <SimilarMovies movie={movie} />
       </Drawer>
 
       

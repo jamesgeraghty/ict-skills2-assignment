@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@material-ui/core/IconButton";
 //import FavoriteIcon from "@material-ui/icons/Favorite";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
+import LocalActivityIcon from "@material-ui/icons/LocalActivity";
 
 const AddPlaylistAddIcon = ({ movie }) => {
   const context = useContext(MoviesContext);
 
   const handleAddToPLayList = (e) => {
     e.preventDefault();
-    context.playListAdd(movie);
+    context.addplayList(movie);
   };
   return (
-    <IconButton aria-label="add to favorites" onClick={handleAddToPLayList}>
-      <PlaylistAddIcon color="primary" fontSize="large" />
+    <IconButton aria-label="add to Playlist" onClick={handleAddToPLayList}>
+      <LocalActivityIcon color="primary" fontSize="large" />
     </IconButton>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'

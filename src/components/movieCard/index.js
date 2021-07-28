@@ -17,16 +17,19 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 import "./moviesCard.css";
+import Chip from "@material-ui/core/Chip";
 
 
 
 const useStyles = makeStyles({
-  card: { maxWidth: 345 },
-  media: { height: 450 },
-  // backgroundColor:"rgb(56, 48, 48)",
-  avatar: {
-    backgroundColor: "rgb(255, 0, 0)",
-  },
+  card: { maxWidth: 320, backgroundColor:"rgb(255, 132, 2)",  },
+  header: { height: 30, backgroundColor:"rgb(255, 132, 2)" },
+  media: { height: 500, backgroundColor:"rgb(255, 132, 2)" },
+  container: { height: 420, backgroundColor:"rgb(255, 132, 2)" },
+  avatar: {backgroundColor: "rgb(255, 0, 0)"},
+  CardContent:{backgroundColor:"rgb(255, 255, 0)"}
+
+ 
 });
 
 export default function MovieCard({ movie, action }) {
@@ -44,15 +47,10 @@ export default function MovieCard({ movie, action }) {
       movie.playList = true;
     }
 
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
-
   return (
  
     <Card className={classes.card}>
-       <CardHeader
+       <CardHeader       
       className={classes.header}
       avatar={
         movie.favorite ? (
@@ -66,7 +64,7 @@ export default function MovieCard({ movie, action }) {
     ) : null
       }
       title={
-        <Typography variant="h6" component="p">
+        <Typography variant="h5" component="p" >
           {movie.title}{" "}
         </Typography>
       }
@@ -82,25 +80,31 @@ export default function MovieCard({ movie, action }) {
       <CardContent>
         <Grid container>
           <Grid item xs={6}>
-            <Typography variant="h6" component="p">
+            <Typography variant="h6" component="p" color="primary">
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
+            <Typography variant="h4" component="p" color="primary">
+              <StarRateIcon fontSize="medium" />
               {"  "} {movie.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
       {action(movie)}
      
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+          <Button variant="contained" size="h4" color="rgb(255, 0, 0)">
+            More Info
+          </Button>
+        </Link>
+
+        <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="contained" size="h5" color="primary">
+          Similar Movies 
           </Button>
         </Link>
       </CardActions>

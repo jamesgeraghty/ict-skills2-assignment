@@ -51,6 +51,8 @@ const MovieDetails = ({ movie }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerOpen2, setDrawerOpen2] = useState(false);
 
+  
+
 
   return (
     <>

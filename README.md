@@ -3,10 +3,10 @@
 Name: James Geraghty
 
 ## To run the app you will need to do the following 
-+Delete the node_modules folder.
-+Delete the package-lock.json file
-+Run npm install --legacy-peer-deps       (from the base folder)
-+Run npm run storybook
++ Delete the node_modules folder.
++ Delete the package-lock.json file
++ Run npm install --legacy-peer-deps       (from the base folder)
++ Run npm run storybook
 
 ## Overview.
 

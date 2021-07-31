@@ -135,7 +135,7 @@ const MovieDetails = ({ movie }) => {
       </Fab>
       
       <Drawer anchor="bottom" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <SimilarMovies movie={movie} />
+        <MovieReviews movie={movie} />
       </Drawer>
 
       

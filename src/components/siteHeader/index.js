@@ -14,6 +14,13 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 
+import InputLabel from "@material-ui/core/InputLabel";
+
+import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select"
+
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
@@ -29,13 +36,13 @@ const SiteHeader = ( { history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Up Coming", path: "/movies/upcoming" },
-    { label: "Favorites", path: "/movies/favorites" },
-    { label: "Playlist", path: "/movies/playlist" },
-    { label: "Top Rated", path: "/movies/toprated" },
-    { label: "Popular", path: "/movies/popular" },
-    { label: "Now Playing", path: "/movies/now_playing" },
+    { label: "| Home", path: "/" },
+    { label: "| Up Coming |", path: "/movies/upcoming" },
+    { label: "| Favorites |", path: "/movies/favorites" },
+    { label: "| Playlist |", path: "/movies/playlist" },
+    { label: "| Top Rated |", path: "/movies/toprated" },
+    { label: "| Popular |", path: "/movies/popular" },
+    { label: "| Now Playing |", path: "/movies/now_playing" },
   ];
 
   const handleMenuSelect = (pageURL) => {

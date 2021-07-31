@@ -5,11 +5,13 @@ import Spinner from '../components/spinner'
 import { getPopularMovies } from "../api/tmdb-api";
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 import PlaylistAddIcon from '../components/cardIcons/playlistAdd';
+import CustomerPagination from "../components/Pagination";
 
 
 const PopularMoviesPage = (props) => {
   //const { id } = props.match.params
   const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
+  const [ page, setPage] = useState (1)
 
   if (isLoading) {
     return <Spinner />
@@ -30,7 +32,13 @@ const PopularMoviesPage = (props) => {
       action={(movie) => {
         return <PlaylistAddIcon movie={movie} />
       }}
+
+      
     />
+    
+
+   
   );
+
 };
 export default PopularMoviesPage;

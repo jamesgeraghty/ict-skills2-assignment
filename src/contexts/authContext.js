@@ -6,10 +6,7 @@ const AuthContextProvider = (props) => {
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({ username: null, password: null });
 
-  // useEffect(() => {
-  //   setIsAuthenticated(true);
-  // }, [newUser.username]);
-
+ 
   const authenticate = (username, password) => {
     setUser({ username, password });
   };

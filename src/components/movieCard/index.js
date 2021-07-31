@@ -17,7 +17,8 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 import "./moviesCard.css";
-import Chip from "@material-ui/core/Chip";
+import { Badge } from "@material-ui/core";
+
 
 
 
@@ -50,6 +51,9 @@ export default function MovieCard({ movie, action }) {
   return (
  
     <Card className={classes.card}>
+       < Badge badgeContent = {movie.vote_average}
+        color = {movie.vote_average > 6? "primary" : "secondary"} />
+      
        <CardHeader       
       className={classes.header}
       avatar={
@@ -78,6 +82,7 @@ export default function MovieCard({ movie, action }) {
         }
       />
       <CardContent>
+        
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h6" component="p" color="primary">
@@ -86,10 +91,13 @@ export default function MovieCard({ movie, action }) {
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="h4" component="p" color="primary">
+         
+            <Typography variant="h4" component="p" color={movie.vote_average>6?'primary':'secondary'}>
               <StarRateIcon fontSize="medium" />
-              {"  "} {movie.vote_average}{" "}
+              {"  "}{"  "}{"   "}{movie.vote_average} 
+              
             </Typography>
+           
           </Grid>
         </Grid>
       </CardContent>

@@ -34,7 +34,9 @@ const MovieDetailsPage = (props) => {
       ) : (
         <p>Waiting for movie details</p>
       )}
+     
     </>
+  
   );
 };
 

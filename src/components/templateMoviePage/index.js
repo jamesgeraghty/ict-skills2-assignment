@@ -4,15 +4,26 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getMovieImages } from "../../api/tmdb-api";
+import { getMovieImages, getMovies } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+//mport {getMovies} from '../api/tmdb-api'
+import Pagination from '@material-ui/lab/Pagination';
+import Typography from '@material-ui/core/Typography';
+
+  
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
+  },
+  root2: {
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
   },
   gridList: {
     width: 200,
@@ -22,10 +33,14 @@ const useStyles = makeStyles((theme) => ({
 
 const TemplateMoviePage = ({ movie, children }) => {
   const classes = useStyles();
-  const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: movie.id }],
-    getMovieImages
-  );
+  
+  
+const [page, setPage] = React.useState(1);
+const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const { data , error, isLoading, isError } = useQuery(["images", { id: movie.id }],getMovieImages, ["discover", { page: page} ], getMovies);
 
   if (isLoading) {
     return <Spinner />;
@@ -59,7 +74,13 @@ const TemplateMoviePage = ({ movie, children }) => {
         <Grid item xs={9}>
           {children}
         </Grid>
+        <div className={classes.root2}>
+      <Typography>Page: {page}</Typography>
+      <Pagination count={10} page={page} onChange={handlePageChange} />
+    </div>
+      
       </Grid>
+      
     </>
   );
 };

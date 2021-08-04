@@ -51,8 +51,7 @@ export default function MovieCard({ movie, action }) {
   return (
  
     <Card className={classes.card}>
-       < Badge badgeContent = {movie.vote_average}
-        color = {movie.vote_average > 6? "primary" : "secondary"} />
+       
       
        <CardHeader       
       className={classes.header}
@@ -82,6 +81,8 @@ export default function MovieCard({ movie, action }) {
         }
       />
       <CardContent>
+      < Badge badgeContent = {movie.vote_average}
+        color = {movie.vote_average > 6? "primary" : "secondary"} />
         
         <Grid container>
           <Grid item xs={6}>

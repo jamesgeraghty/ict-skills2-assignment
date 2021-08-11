@@ -9,8 +9,8 @@ Name: James Geraghty
 + Run npm run storybook
 
 ## Overview.
-
-...... State the app concept and objectives. If it's the Movies Fan app extension, only state the additional objectives .........
+This is an extension of the movies fan app.
+.
 
 
 ...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 

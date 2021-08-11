@@ -5,21 +5,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import WhatshotIcon from "@material-ui/icons/Whatshot";
 
-import InputLabel from "@material-ui/core/InputLabel";
-
-import TextField from "@material-ui/core/TextField";
-import SearchIcon from "@material-ui/icons/Search";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select"
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -36,13 +28,13 @@ const SiteHeader = ( { history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const menuOptions = [
-    { label: "| Home", path: "/" },
-    { label: "| Up Coming |", path: "/movies/upcoming" },
-    { label: "| Favorites |", path: "/movies/favorites" },
-    { label: "| Playlist |", path: "/movies/playlist" },
-    { label: "| Top Rated |", path: "/movies/toprated" },
-    { label: "| Popular |", path: "/movies/popular" },
-    { label: "| Now Playing |", path: "/movies/now_playing" },
+    { label: " Home", path: "/" },
+    { label: " Up Coming ", path: "/movies/upcoming" },
+    { label: " Favorites ", path: "/movies/favorites" },
+    { label: " Playlist ", path: "/movies/playlist" },
+    { label: " Top Rated ", path: "/movies/toprated" },
+    { label: " Popular ", path: "/movies/popular" },
+    { label: " Now Playing ", path: "/movies/now_playing" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -59,7 +51,7 @@ const SiteHeader = ( { history }) => {
     back="rgb(200, 204, 0)">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-          🎬 James's Movies App 🎥
+          🎬 Movies App 🎥
           </Typography>
           
             {isMobile ? (

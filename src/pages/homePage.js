@@ -26,8 +26,6 @@ const handlePageChange = (event, value) => {
 
 const {  data, error, isLoading, isError }  = useQuery( ["discover", { page: page} ], getMovies);
 
-
-  //const {  data, error, isLoading, isError }  = useQuery('discover', getMovies, getUpcomingMovies,getTopRatedMovies,getSimilarMovies,getPopularMovies)
   
   if (isLoading) {
     return <Spinner />
@@ -61,8 +59,7 @@ const {  data, error, isLoading, isError }  = useQuery( ["discover", { page: pag
   />
  <Pagination className={classes.pagination} count={500} page={page} onChange={handlePageChange} shape="rounded" size="large" color = "standard"
  />
-  </> 
-    
+  </>  
   
 
     

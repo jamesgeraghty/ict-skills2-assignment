@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieHeader from "../headerMovie";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,9 +7,9 @@ import GridListTile from "@material-ui/core/GridListTile";
 import { getMovieImages, getMovies } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-//mport {getMovies} from '../api/tmdb-api'
 import Pagination from '@material-ui/lab/Pagination';
 import Typography from '@material-ui/core/Typography';
+
 
   
 
@@ -36,6 +36,7 @@ const TemplateMoviePage = ({ movie, children }) => {
   
   
 const [page, setPage] = React.useState(1);
+const[video,setVideo] = useState();
 const handlePageChange = (event, value) => {
     setPage(value);
   };
@@ -74,12 +75,10 @@ const handlePageChange = (event, value) => {
         <Grid item xs={9}>
           {children}
         </Grid>
-        <div className={classes.root2}>
-      <Typography>Page: {page}</Typography>
-      <Pagination count={10} page={page} onChange={handlePageChange} />
-    </div>
+    
       
       </Grid>
+   
       
     </>
   );

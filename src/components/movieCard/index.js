@@ -22,16 +22,23 @@ import { Badge } from "@material-ui/core";
 
 
 
-const useStyles = makeStyles({
-  card: { maxWidth: 320, backgroundColor:"rgb(255, 132, 2)",  },
-  header: { height: 30, backgroundColor:"rgb(255, 132, 2)" },
-  media: { height: 500, backgroundColor:"rgb(255, 132, 2)" },
-  container: { height: 420, backgroundColor:"rgb(255, 132, 2)" },
+const useStyles = makeStyles((theme) => ({
+    
+
+  card: { maxWidth: 320, backgroundColor:"rgb(255, 132, 2)"  },
+  header: { height: 30, backgroundColor:"rgb(255, 132, 2)", display: "flex", justifyContent: "center" },
+  media: { height: 500, backgroundColor:"rgb(255, 132, 2)",display: "flex", justifyContent: "center" },
+  container: { height: 420, backgroundColor:"rgb(255, 132, 2)" , display: "flex", justifyContent: "center"},
   avatar: {backgroundColor: "rgb(255, 0, 0)"},
-  CardContent:{backgroundColor:"rgb(255, 255, 0)"}
+  CardContent:{backgroundColor:"rgb(255, 255, 0)",  display: "flex", justifyContent: "center"},
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
 
  
-});
+}));
 
 export default function MovieCard({ movie, action }) {
   const classes = useStyles();
@@ -49,6 +56,7 @@ export default function MovieCard({ movie, action }) {
     }
 
   return (
+    <div className={classes.root}>
  
     <Card className={classes.card}>
        
@@ -81,24 +89,22 @@ export default function MovieCard({ movie, action }) {
         }
       />
       <CardContent>
-      < Badge badgeContent = {movie.vote_average}
-        color = {movie.vote_average > 6? "primary" : "secondary"} />
+      
         
         <Grid container>
-          <Grid item xs={6}>
+          <Grid item xs={7}>
             <Typography variant="h6" component="p" color="primary">
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
           <Grid item xs={6}>
-         
-            <Typography variant="h4" component="p" color={movie.vote_average>6?'primary':'secondary'}>
-              <StarRateIcon fontSize="medium" />
-              {"  "}{"  "}{"   "}{movie.vote_average} 
-              
-            </Typography>
-           
+          <Grid item xs={6}>
+          <Typography Similar Movies />
+          < Badge  badgeContent = {movie.vote_average} variant="dot"
+         variant="h3"
+        color = {movie.vote_average > 6? "primary" : "secondary"} variant="h3" />
+           </Grid>
           </Grid>
         </Grid>
       </CardContent>
@@ -106,18 +112,18 @@ export default function MovieCard({ movie, action }) {
       {action(movie)}
      
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="contained" size="h4" color="rgb(255, 0, 0)">
+          <Button variant="contained" size="h6" color="rgb(255, 0, 0)">
             More Info
           </Button>
         </Link>
-
+     
         <Link to={`/movies/${movie.id}/similar`}>
-          <Button variant="contained" size="h5" color="primary">
+          <Button variant="contained" size="h6" color="primary">
           Similar Movies 
           </Button>
         </Link>
       </CardActions>
     </Card>
-  
+    </div>
   );
 }

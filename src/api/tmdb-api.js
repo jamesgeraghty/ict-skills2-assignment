@@ -1,8 +1,10 @@
 
 
-export const getMovies = async () => {
+export const getMovies = async ( args ) => {
+  console.log(args);
+  const [prefix, { page }] = args.queryKey;
   const response = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${page}`
   );
   if (!response.ok) {
     throw new Error(response.json().message);
@@ -60,9 +62,11 @@ export const getMovie = async ( args ) => {
       });
   };
 
-  export const getUpcomingMovies = async () => {
+  export const getUpcomingMovies = async ( args ) => {
+    console.log(args);
+    const [prefix, { page }] = args.queryKey;
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
     );
     if (!response.ok) {
       throw new Error(response.json().message);
@@ -109,6 +113,28 @@ export const getMovie = async ( args ) => {
     export const getNowPlayingMovies = async () => {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      );
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    };
+
+    export const getVideo = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      );
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    };
+  
+    export const getCredits = async ( args ) => {
+     
+      const [prefix, { id }] = args.queryKey;
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
       );
       if (!response.ok) {
         throw new Error(response.json().message);

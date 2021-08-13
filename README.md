@@ -1,6 +1,7 @@
 # Assignment - ReactJS app.
 
 Name: James Geraghty
+Student Number : 20022946 
 
 ## To run the app you will need to do the following 
 + Delete the node_modules folder.
@@ -9,17 +10,17 @@ Name: James Geraghty
 + Run npm run storybook
 
 ## Overview.
-This is an extension of the movies fan app.
+This is an extension of the movies fan app. The app allows the user to view popular and upcomign movies as well as add movies to a playlist and view information about each movie on the movies's homepage. As the there are hundred of movie to view, the pagination featrie allows the user to quickly navigate through each page.
 .
 
 
 ...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 
  
- + Feature 1
- + Feature 2
- + Feature 3
- + etc
- + etc
+ + Adding Movies to a Playlist
+ + Floating Navigation Bar 
+ + Pagination
+ + View Up Coming Movies 
+ + View Similar Movies to the Movies listed 
 
 ## Setup requirements.
 

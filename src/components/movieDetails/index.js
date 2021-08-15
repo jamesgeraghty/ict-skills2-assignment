@@ -10,13 +10,13 @@ import Button from '@material-ui/core/Button';
 import Fab from "@material-ui/core/Fab";
 import axios from "axios";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
 import Loader from "../Helper/Loader";
 import { Link } from "react-router-dom";
+import { Avatar } from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-const MovieDetails = ({ movie, media_type, id }) => {  
+const MovieDetails = ({ movie, credits, media_type, id }) => {  
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerOpen2, setDrawerOpen2] = useState(false);
@@ -55,7 +55,7 @@ const MovieDetails = ({ movie, media_type, id }) => {
   const [video, setVideo] = useState();
   const [videos, setVideos] = useState([]);
   
-  const [credits, setCredits] = useState([]);
+  //const [credits, setCredits] = useState([]);
 
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
@@ -64,63 +64,14 @@ const MovieDetails = ({ movie, media_type, id }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  let castMember = credits.cast;
+  castMember = castMember.slice (0,3);
 
-  let source = axios.CancelToken.source();
-  const singleRequest = async () => {
-    setIsError(false);
-    setIsLoading(true);
 
-    try {
-      const result = await axios(url, { cancelToken: source.token });
-
-      setVideos(result.data.videos);
-     
-      setCredits(result.data.credits);
-    } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log("Singe Request Cancelled");
-      } else {
-        setIsError(true);
-        throw error;
-      }
-    }
-    console.log(videos);
-    
-    console.log(credits);
-    setIsLoading(false);
-  };
-  useEffect(() => {
-    singleRequest();
-
-    return () => {
-      source.cancel();
-    };
-  }, []);
-
-  let content;
-  if (isError) {
-    content = <div>Error Occurred</div>;
-  } else if (videos.results) {
-    content = (
-      <ul>
-        {videos.results.map(video => (
-          <li key={video.id}>{video.name}</li>
-        ))}
-      </ul>
-    );
-  
-} else {
-  content = <Loader />;
-}
 
   return (
     <>
-        <div>
-      <div>App</div>
-
-      <div>{movie.title}</div>
-      {content}
-    </div>
+       
   
       <Typography variant="h5" component="h3">
         Overview
@@ -183,6 +134,27 @@ const MovieDetails = ({ movie, media_type, id }) => {
         {movie.production_companies.map((p) => (
           <li key={p.origin_country}>
             <Chip label={p.origin_country} className={classes.chip} />
+          </li>
+        ))}
+      </Paper>
+
+      <Paper component="ul" className={classes.root}>
+        <li>
+          <Chip label="Cast" className={classes.chip} color="primary" />
+        </li>
+        {/* loop over the actors */}
+        {castMember.map((a) => (
+          <li key={a.name}>
+            <Chip
+              avatar={
+                <Avatar
+                  alt={a.name}
+                  src={`https://image.tmdb.org/t/p/w300${a.profile_path}`}
+                />
+              }
+              label={a.name}
+              className={classes.chip}
+            />
           </li>
         ))}
       </Paper>

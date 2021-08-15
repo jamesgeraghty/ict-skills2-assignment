@@ -49,16 +49,16 @@ const App = () => {
         <Route exact path="/movies/now_playing" component={NowPlayingMoviesPage} />
         <Route exact path="/movies/popular" component={PopularMoviesPage} />
         <PrivateRoute exact path="/movies/playlist" component={PLayListPage} />
-          <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
-            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-            <Route path="/reviews/:id" component={MovieReviewPage} />
-            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-            <Route exact path="/reviews/form" component={WriteReviewPage} />
-            <Route path="/movies/:id" component={MoviePage} />          
-            <Route exact path="/" component={HomePage} />   
-            <Route path="/login" component={LoginPage} />   
-            <Redirect from="*" to="/" />
+        <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
+        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+        <Route path="/reviews/:id" component={MovieReviewPage} />
+        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+        <Route exact path="/reviews/form" component={WriteReviewPage} />
+        <Route path="/movies/:id" component={MoviePage} />          
+        <PrivateRoute exact path="/" component={HomePage} />   
+        <Route path="/login" component={LoginPage} />   
+        <Redirect from="*" to="/" />
         </Switch>
         </MoviesContextProvider>
         <SimpleBottomNavigation />

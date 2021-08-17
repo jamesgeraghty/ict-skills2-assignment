@@ -68,7 +68,6 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
   castMember = castMember.slice (0,5);
 
 
-
   return (
     <>
        
@@ -92,16 +91,7 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
             />
           </li>
         ))}
- <Link
-        to={{pathname: `${movie.homepage}`}}
-        target="_blank"
-        rel="_blank">
-        <Button color="primary"
-        variant="contained">
-        {<YouTubeIcon />}
-          Movie Homepage
-        </Button>
-      </Link>
+
       </Paper>   
 
       
@@ -157,25 +147,24 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
             />
           </li>
         ))}
-      </Paper>
 
-      
-     
-      <Button
-        color="secondary"
-        variant="extended"
-        onClick={() =>setDrawerOpen2(true)}
-        className={classes.button}
-      >        
-        <ArrowForwardIosIcon />
-        Similar Movies
-      </Button>
-    
-      <Drawer anchor="top" open={drawerOpen2} onClose={() => setDrawerOpen2(false)}>
-        <MovieDetails movie={movie} />
-      </Drawer>
-     
-     
+
+      </Paper>   
+      <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="contained" size="h6" color="primary">
+          Similar Movies 
+          </Button>
+        </Link>   
+        <Link
+        to={{pathname: `${movie.homepage}`}}
+        target="_blank"
+        rel="_blank">
+        <Button color="primary"
+        variant="contained">
+        {<YouTubeIcon />}
+          Movie Homepage
+        </Button>
+      </Link>   
      
       <Fab
         color="secondary"

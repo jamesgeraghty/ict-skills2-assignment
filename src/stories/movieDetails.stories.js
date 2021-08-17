@@ -4,6 +4,7 @@ import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
 
+
 export default {
   title: "Movie Details Page/MovieDetails",
   component: MovieDetails,

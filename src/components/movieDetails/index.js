@@ -65,7 +65,7 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   let castMember = credits.cast;
-  castMember = castMember.slice (0,3);
+  castMember = castMember.slice (0,5);
 
 
 
@@ -142,7 +142,7 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
         <li>
           <Chip label="Cast" className={classes.chip} color="primary" />
         </li>
-        {/* loop over the actors */}
+       
         {castMember.map((a) => (
           <li key={a.name}>
             <Chip

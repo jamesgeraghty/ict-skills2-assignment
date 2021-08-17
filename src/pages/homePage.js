@@ -63,7 +63,7 @@ const {  data, error, isLoading, isError }  = useQuery( ["discover", { page: pag
 
   />
     <div className={classes.root}>
-     <Pagination className={classes.pagination} count={10} page={page} onChange={handlePageChange} shape="rounded" size="large" color = "standard"
+     <Pagination className={classes.pagination} count={500} page={page} onChange={handlePageChange} shape="rounded" size="large" color = "standard"
      />
 </div>
   </>  

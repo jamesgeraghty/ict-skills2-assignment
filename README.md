@@ -166,6 +166,7 @@ vote_count: 1591
 ![](images/NowPlayingpng.png)
 
 
+
 ![][view]
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 

@@ -164,7 +164,10 @@ vote_count: 1591
 
 
 ![](src/images/NowPlayingpng.png)
-*Dispalys all the Movies Now showing in Cinema.*
+*Displays all the Movies Now showing in Cinema.*
+
+![](src/images/storybookpng.png)
+*Storybooks that have been added.*
 
 
 ![](src/images/search.png)

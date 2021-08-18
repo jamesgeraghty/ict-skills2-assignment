@@ -3,7 +3,7 @@
 Name: James Geraghty
 Student Number : 20022946 
 
-## To run the app you will need to do the following 
+## Setup requirements.
 + Delete the node_modules folder.
 + Delete the package-lock.json file
 + Run npm install --legacy-peer-deps       (from the base folder)
@@ -13,8 +13,7 @@ Student Number : 20022946
 This is an extension of the movies fan app. The app allows the user to view popular and upcomign movies as well as add movies to a playlist and view information about each movie on the movies's homepage. As the there are hundred of movie to view, the pagination featrie allows the user to quickly navigate through each page.
 .
 
-
-...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 
+## New Features Added
  
  + Adding Movies to a Playlist
  + Floating Navigation Bar 
@@ -22,9 +21,7 @@ This is an extension of the movies fan app. The app allows the user to view popu
  + View Up Coming Movies 
  + View Similar Movies to the Movies listed 
 
-## Setup requirements.
 
-...... A brief explanation (to a third party) of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
 
 ## API Data Model.
 
@@ -172,15 +169,23 @@ vote_count: 1591
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
 ### Routing.
+List of the Route supported by the app. 
 
-...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
-
-+ GET /blogs - displays all published blogs.
-+ POST /blogs (protected) - add a new blog.
-+ GET /blogs/:id - displays a particular blog.
-+ GET /blogs/:id/comments (protected) - detail view of a particular blog and its comments.
-+ etc.
-+ etc.
+        + <Route exact path="/movies/search" component={SiteSearch} />
+        + <Route exact path="/movies/:id/similar" component={SimilarMoviesPage} />
+        + <Route exact path="/movies/now_playing" component={NowPlayingMoviesPage} />
+        + <Route exact path="/movies/popular" component={PopularMoviesPage} />
+        + <PrivateRoute exact path="/movies/playlist" component={PLayListPage} /> - Private Route for Playlist
+        + <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
+        + <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+        + <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+        + <Route path="/reviews/:id" component={MovieReviewPage} />
+        + <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+        + <Route exact path="/reviews/form" component={WriteReviewPage} />
+        + <Route path="/movies/:id" component={MoviePage} />          
+        + <PrivateRoute exact path="/" component={HomePage} />  - Provate Route for Homepage Login 
+        + <Route path="/login" component={LoginPage} />   
+        + <Redirect from="*" to="/" />
 
 ## Independent learning (If relevant).
 

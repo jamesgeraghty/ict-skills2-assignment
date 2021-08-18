@@ -145,7 +145,6 @@ vote_count: 1591
  ```
  
 
-..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
 
 ![][model]
 

@@ -24,6 +24,7 @@ import AuthHeader from "./components/authHeader";
 import AuthProvider from "./contexts/authContext";
 import { SiteSearch } from "./components/Searchpage";
 import "./index.css";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 
 // the below - will retain all data in the cache for 1 hour before it becomes invalidated
@@ -42,7 +43,11 @@ const App = () => {
     <>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-      <AuthProvider>
+      <Auth0Provider
+        domain="dev-8xw-0g27.us.auth0.com"
+        clientId="NvWWaj9NyiwO59QLrRvTHJ8BBy8InVA9"
+        redirectUri={window.location.origin}>
+        <AuthProvider>
         <SiteHeader />
         <MoviesContextProvider>           
         <Switch>
@@ -65,6 +70,7 @@ const App = () => {
         </MoviesContextProvider>
         <SimpleBottomNavigation />
         </AuthProvider>
+        </Auth0Provider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

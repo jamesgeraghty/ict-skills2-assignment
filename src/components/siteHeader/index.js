@@ -11,6 +11,9 @@ import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import LoginButton from "../Auth0Buttons/login";
+import { Link } from "react-router-dom";
+import LogoutButton from "../Auth0Buttons/logout";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +57,15 @@ const SiteHeader = ( { history }) => {
           <Typography variant="h4" className={classes.title}>
           🎬 Movies App 🎥
           </Typography>
+
+         
+            <Link className="nav-link text-white" to="/login">
+              <LoginButton />
+            </Link>
+            <Link className="nav-link text-white" to="/logout">
+              <LogoutButton />
+            </Link>
+          
           
             {isMobile ? (
               <>

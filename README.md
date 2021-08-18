@@ -163,9 +163,28 @@ vote_count: 1591
 ### UI Design.
 
 
-![](images/NowPlayingpng.png)
+![](src/images/NowPlayingpng.png)
+*Dispalys all the Movies Now showing in Cinema.*
 
 
+![](src/images/search.png)
+*Search a Movies by name and returns the movie poster and the year of release.*
+
+
+![](src/images/similarMovies.png)
+*Show a list of movies that are similar to the movie viewed.*
+
+
+![](src/images/upComingMovies.png)
+
+*Returns a list of Up Coming Movies.*
+
+
+
+
+![](src/images/pagination.png)
+
+*pagination and Quick Search Menu Bar.*
 
 ![][view]
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.

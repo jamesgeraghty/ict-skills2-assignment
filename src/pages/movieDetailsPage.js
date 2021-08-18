@@ -3,33 +3,37 @@ import { withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 //import useMovie from "../hooks/useMovie";
-import { getMovie } from '../api/tmdb-api'
-import { useQuery } from "react-query";
+import { getMovie } from '../api/tmdb-api';
+import {getCredits} from '../api/tmdb-api';
+import { useQuery ,useStyles} from "react-query";
 import Spinner from '../components/spinner'
+import { Avatar, Chip, Paper } from "@material-ui/core";
 
 const MovieDetailsPage = (props) => {
-  const { id } = props.match.params
+ // const classes = useStyles();
+  const { id } = props.match.params;
 
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
-    getMovie
-  );
+  const { data: movie, error, isLoading, isError } = useQuery(["movie", { id: id }],getMovie);
 
-  if (isLoading) {
+  const creditsReturned = useQuery(["credits", { id: id }], getCredits);
+
+  if (isLoading ) {
     return <Spinner />;
   }
 
-  if (isError) {
+  if (isError ) {
     return <h1>{error.message}</h1>;
   }
 
   return (
     <>
-      {movie ? (
+      {movie && creditsReturned.data? (
         <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
+          <PageTemplate movie={movie} credits={creditsReturned.data}>
+            <MovieDetails movie={movie} credits={creditsReturned.data}/>
           </PageTemplate>
+
+       
         </>
       ) : (
         <p>Waiting for movie details</p>

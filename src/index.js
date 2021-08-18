@@ -15,14 +15,15 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WriteReviewPage from "./pages/addMovieReviewPage";
 import PLayListPage from "./pages/playList";
-import SimpleBottomNavigation from "./components/mainNav";
+import SimpleBottomNavigation from "./components/QuickNavigation/mainNav";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
 import SimilarMoviesPage from "./pages/similarMovies";
 import LoginPage from "./pages/loginPage";
 import PrivateRoute from "./components/privateRoute";
 import AuthHeader from "./components/authHeader";
 import AuthProvider from "./contexts/authContext";
-
+import { SiteSearch } from "./components/Searchpage";
+import "./index.css";
 
 
 // the below - will retain all data in the cache for 1 hour before it becomes invalidated
@@ -45,20 +46,21 @@ const App = () => {
         <SiteHeader />
         <MoviesContextProvider>           
         <Switch>
+        <Route exact path="/movies/search" component={SiteSearch} />
         <Route exact path="/movies/:id/similar" component={SimilarMoviesPage} />
         <Route exact path="/movies/now_playing" component={NowPlayingMoviesPage} />
         <Route exact path="/movies/popular" component={PopularMoviesPage} />
         <PrivateRoute exact path="/movies/playlist" component={PLayListPage} />
-          <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
-            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-            <Route path="/reviews/:id" component={MovieReviewPage} />
-            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-            <Route exact path="/reviews/form" component={WriteReviewPage} />
-            <Route path="/movies/:id" component={MoviePage} />          
-            <Route exact path="/" component={HomePage} />   
-            <Route path="/login" component={LoginPage} />   
-            <Redirect from="*" to="/" />
+        <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
+        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+        <Route path="/reviews/:id" component={MovieReviewPage} />
+        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+        <Route exact path="/reviews/form" component={WriteReviewPage} />
+        <Route path="/movies/:id" component={MoviePage} />          
+        <PrivateRoute exact path="/" component={HomePage} />   
+        <Route path="/login" component={LoginPage} />   
+        <Redirect from="*" to="/" />
         </Switch>
         </MoviesContextProvider>
         <SimpleBottomNavigation />

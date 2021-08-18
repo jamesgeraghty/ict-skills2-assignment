@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/authContext";
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+//import SignInForm from "../components/SignInForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,8 +31,10 @@ const LoginPage = (props) => {
   return context.isAuthenticated ? (
     <Redirect to={from} />
   ) : (
+
+    
     <>
-     
+    
       <h2>Login page</h2>
       <p>You must log in to view the Playlist  </p>
       <form className={classes.root} noValidate autoComplete="off">

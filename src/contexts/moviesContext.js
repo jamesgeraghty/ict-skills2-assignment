@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 export const MoviesContext = React.createContext(null);
@@ -21,6 +21,12 @@ const MoviesContextProvider = (props) => {
   const addReview = (movie, review) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
   };
+
+  useEffect(() =>{
+
+    localStorage.setItem("Playlist",JSON.stringify(addplayList))
+  });
+
 
   const addplayList = (movie) => {
     setPlayList( [...playListAdd, movie.id])

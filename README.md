@@ -162,7 +162,9 @@ vote_count: 1591
 
 ### UI Design.
 
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
+
+![](images/NowPlayingpng.png)
+
 
 ![][view]
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.

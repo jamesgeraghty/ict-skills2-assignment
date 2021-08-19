@@ -155,8 +155,7 @@ const MovieDetails = ({ movie, credits, media_type, id }) => {
           Similar Movies 
           </Button>
         </Link>   
-        <Link
-        to={{pathname: `${movie.homepage}`}}
+        <Link to={{pathname: `${movie.homepage}`}}
         target="_blank"
         rel="_blank">
         <Button color="primary"

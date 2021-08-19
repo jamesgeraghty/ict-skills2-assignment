@@ -8,6 +8,7 @@ Student Number : 20022946
 + Delete the package-lock.json file
 + Run npm install --legacy-peer-deps       (from the base folder)
 + Run npm run storybook
++ Auth0 authentication.
 
 ## Overview.
 This is an extension of the movies fan app. The app allows the user to view popular and upcomign movies as well as add movies to a playlist and view information about each movie on the movies's homepage. As the there are hundred of movie to view, the pagination featrie allows the user to quickly navigate through each page.
@@ -146,7 +147,171 @@ vote_count: 1591
  
 
 
-![][model]
+### 3. GET /movie/19404/credits - Returns a list of actors from the movie. 
+
+  `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}``
+  
+  *Sample Json*:
+ ```
+ {
+id: 19404,
+cast: [
+{
+adult: false,
+gender: 2,
+id: 35742,
+known_for_department: "Acting",
+name: "Shah Rukh Khan",
+original_name: "Shah Rukh Khan",
+popularity: 8.427,
+profile_path: "/iAr3NRkU9KuPX7jI9ePPeq7zVsc.jpg",
+cast_id: 1,
+character: "Raj Malhotra",
+credit_id: "52fe47d69251416c750a71a1",
+order: 0
+},
+{
+adult: false,
+gender: 1,
+id: 55061,
+known_for_department: "Acting",
+name: "Kajol",
+original_name: "Kajol",
+popularity: 3.343,
+profile_path: "/cwum24EsxNwpcEsboKkudiGySLY.jpg",
+cast_id: 2,
+character: "Simran Singh",
+credit_id: "52fe47d69251416c750a71a5",
+order: 1
+},
+{
+adult: false,
+gender: 2,
+id: 691,
+known_for_department: "Acting",
+name: "Amrish Puri",
+original_name: "Amrish Puri",
+popularity: 3.381,
+profile_path: "/uhMGFS7tuG71LDv2wk9LfZZ4EG6.jpg",
+cast_id: 3,
+character: "Chaudhry Baldev Singh",
+credit_id: "52fe47d69251416c750a71a9",
+order: 2
+},
+ 
+ ```
+ 
+ ### 4. GET /movie/upcoming - Returns a list of upcoming movies.
+
+ `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
+  
+  *Sample Json*:
+ ```
+{
+dates: {
+maximum: "2021-09-15",
+minimum: "2021-08-25"
+},
+page: 1,
+results: [
+{
+adult: false,
+backdrop_path: "/j28p5VwI5ieZnNwfeuZ5Ve3mPsn.jpg",
+genre_ids: [
+35,
+28,
+12,
+878
+],
+id: 550988,
+original_language: "en",
+original_title: "Free Guy",
+overview: "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline.",
+popularity: 2974.785,
+poster_path: "/acCS12FVUQ7blkC8qEbuXbsWEs2.jpg",
+release_date: "2021-08-11",
+title: "Free Guy",
+video: false,
+vote_average: 7.9,
+vote_count: 187
+},
+{
+adult: false,
+backdrop_path: "/wjQXZTlFM3PVEUmKf1sUajjygqT.jpg",
+genre_ids: [
+878,
+28,
+53
+],
+id: 581726,
+original_language: "en",
+original_title: "Infinite",
+overview: "Evan McCauley has skills he never learned and memories of places he has never visited. Self-medicated and on the brink of a mental breakdown, a secret group that call themselves “Infinites” come to his rescue, revealing that his memories are real.",
+popularity: 2198.248,
+poster_path: "/niw2AKHz6XmwiRMLWaoyAOAti0G.jpg",
+release_date: "2021-06-10",
+title: "Infinite",
+video: false,
+vote_average: 7.4,
+vote_count: 731
+},
+ 
+ ```
+ 
+  ### 5. GET /movie/top_rated - Returns a list of top rated movies
+
+`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  
+  *Sample Json*:
+ ```
+{
+page: 1,
+results: [
+{
+adult: false,
+backdrop_path: "/gNBCvtYyGPbjPCT1k3MvJuNuXR6.jpg",
+genre_ids: [
+35,
+18,
+10749
+],
+id: 19404,
+original_language: "hi",
+original_title: "दिलवाले दुल्हनिया ले जायेंगे",
+overview: "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
+popularity: 16.477,
+poster_path: "/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+release_date: "1995-10-20",
+title: "Dilwale Dulhania Le Jayenge",
+video: false,
+vote_average: 8.7,
+vote_count: 3088
+},
+{
+adult: false,
+backdrop_path: "/iNh3BivHyg5sQRPP1KOkzguEX0H.jpg",
+genre_ids: [
+18,
+80
+],
+id: 278,
+original_language: "en",
+original_title: "The Shawshank Redemption",
+overview: "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+popularity: 56.708,
+poster_path: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+release_date: "1994-09-23",
+title: "The Shawshank Redemption",
+video: false,
+vote_average: 8.7,
+vote_count: 19462
+},
+ 
+ ```
+ 
+
+
+
 
 ......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
 

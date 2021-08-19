@@ -313,12 +313,6 @@ vote_count: 19462
 
 
 
-......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
-
-## Additional TMDB endpoints used
-
-## App Design.
-
 ### Component catalogue.
 
 ....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
@@ -381,10 +375,6 @@ List of the Route supported by the app.
         + <PrivateRoute exact path="/" component={HomePage} />  - Provate Route for Homepage Login 
         + <Route path="/login" component={LoginPage} />   
         + <Redirect from="*" to="/" />
-
-## Independent learning (If relevant).
-
-....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
 
 
 [model]: ./data.jpg

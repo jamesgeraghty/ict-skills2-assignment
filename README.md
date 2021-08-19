@@ -348,6 +348,12 @@ vote_count: 19462
 *Returns a list of Up Coming Movies.*
 
 
+![](src/images/auth0.png)
+
+*Authentication using Auth0.*
+
+
+
 
 
 ![](src/images/pagination.png)

@@ -4,7 +4,7 @@ import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
-import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
+import RemovePlaylist from "../components/cardIcons/removeFromPlaylist";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const PLayListPage = () => {
@@ -35,7 +35,7 @@ const PLayListPage = () => {
       action={(movie) => {
         return (
           <>
-            <RemoveFromFavorites movie={movie} />
+            <RemovePlaylist movie={movie} />
           
           </>
         );

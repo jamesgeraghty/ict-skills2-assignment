@@ -2,6 +2,7 @@
 
 Name: James Geraghty
 Student Number : 20022946 
+Firebase Deployed URL: https://movies-app-deployed.web.app/login
 
 ## Setup requirements.
 + Delete the node_modules folder.

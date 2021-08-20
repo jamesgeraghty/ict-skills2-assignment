@@ -1,8 +1,8 @@
 # Assignment - ReactJS app.
 
-+Name: James Geraghty
-+Student Number : 20022946 
-+Firebase Deployed URL: https://movies-app-deployed.web.app/login
++ Name: James Geraghty
++ Student Number : 20022946 
++ Firebase Deployed URL: https://movies-app-deployed.web.app/login
 
 ## Setup requirements.
 + Delete the node_modules folder.
@@ -383,5 +383,5 @@ List of the Route supported by the app.
 [stories]: ./storybook.png
 
 ### Self Learning
-+Firebase deployed application 
-+Auth0 authentication
++ Firebase deployed application 
++ Auth0 authentication

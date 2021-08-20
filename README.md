@@ -9,7 +9,7 @@
 + Delete the package-lock.json file
 + Run npm install --legacy-peer-deps       (from the base folder)
 + Run npm run storybook
-+ Auth0 authentication.
+
 
 ## Overview.
 This is an extension of the movies fan app. The app allows the user to view popular and upcomign movies as well as add movies to a playlist and view information about each movie on the movies's homepage. As the there are hundred of movie to view, the pagination featrie allows the user to quickly navigate through each page.
@@ -22,6 +22,8 @@ This is an extension of the movies fan app. The app allows the user to view popu
  + Pagination
  + View Up Coming Movies 
  + View Similar Movies to the Movies listed 
+ + Auth0 authentication.
+ + FIrebase Deployed
 
 
 

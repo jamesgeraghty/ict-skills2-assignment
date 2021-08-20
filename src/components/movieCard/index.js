@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     
 
   card: { maxWidth: 320, backgroundColor:"rgb(255, 132, 2)"  },
-  header: { height: 30, backgroundColor:"rgb(255, 132, 2)", display: "flex", justifyContent: "center" },
+  header: { height: 80, backgroundColor:"rgb(255, 132, 2)", display: "flex", justifyContent: "center" },
   media: { height: 500, backgroundColor:"rgb(255, 132, 2)",display: "flex", justifyContent: "center" },
   container: { height: 420, backgroundColor:"rgb(255, 132, 2)" , display: "flex", justifyContent: "center"},
   avatar: {backgroundColor: "rgb(255, 0, 0)"},
